@@ -2,41 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Medical Disease Monitoring Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Medical Background System */
+    --background: 218 25% 98%;
+    --foreground: 213 27% 14%;
 
+    /* Medical Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 213 27% 14%;
 
+    /* Medical Popover System */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 213 27% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Medical Primary (Professional Blue) */
+    --primary: 210 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 85% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Medical Secondary (Clean Gray) */
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 213 27% 14%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Medical Muted (Subtle Blue-Gray) */
+    --muted: 210 20% 96%;
+    --muted-foreground: 213 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Medical Accent (Health Green) */
+    --accent: 142 75% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Medical Alert System */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+    --success: 142 75% 50%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Medical Borders and Inputs */
+    --border: 210 20% 88%;
+    --input: 210 20% 94%;
+    --ring: 210 85% 45%;
 
-    --radius: 0.5rem;
+    --radius: 0.8rem;
+
+    /* Medical Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-health: linear-gradient(135deg, hsl(var(--success)), hsl(142 75% 65%));
+    --gradient-alert: linear-gradient(135deg, hsl(var(--destructive)), hsl(0 85% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 25% 96%));
+
+    /* Medical Shadows */
+    --shadow-card: 0 2px 10px -2px hsl(var(--primary) / 0.1);
+    --shadow-alert: 0 4px 20px -4px hsl(var(--destructive) / 0.25);
+    --shadow-success: 0 4px 20px -4px hsl(var(--success) / 0.25);
+
+    /* Medical Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +127,32 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-card border border-border rounded-lg shadow-card p-6;
+  }
+
+  .status-indicator {
+    @apply inline-flex items-center justify-center w-3 h-3 rounded-full animate-pulse;
+  }
+
+  .status-safe {
+    @apply bg-success;
+  }
+
+  .status-warning {
+    @apply bg-warning;
+  }
+
+  .status-danger {
+    @apply bg-destructive;
+  }
+
+  .chart-container {
+    @apply bg-card border border-border rounded-lg p-4 shadow-card;
   }
 }
