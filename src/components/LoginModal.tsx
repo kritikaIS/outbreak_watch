@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Building2, User, AlertCircle } from "lucide-react";
-import { toast } from "sonner";
 
 interface LoginModalProps {
   children: React.ReactNode;
@@ -27,12 +26,12 @@ const LoginModal = ({ children }: LoginModalProps) => {
 
   const handleClinicLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.error("Authentication requires Supabase integration");
+    alert("Authentication requires Supabase integration");
   };
 
   const handlePublicLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.error("Authentication requires Supabase integration");
+    alert("Authentication requires Supabase integration");
   };
 
   return (

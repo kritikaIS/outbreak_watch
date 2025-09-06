@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle, Send, MapPin } from "lucide-react";
-import { toast } from "sonner";
 
 const SymptomReportForm = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ const SymptomReportForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would integrate with your backend/Supabase
-    toast.success("Symptom report submitted successfully");
+    alert("Symptom report submitted successfully!");
     setFormData({
       symptoms: '',
       symptomType: '',
